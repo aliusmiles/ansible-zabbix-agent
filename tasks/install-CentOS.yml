@@ -1,0 +1,6 @@
+---
+# CentOS tasks file for ansible-zabbix-agent
+- name: Install zabbix-agent
+  yum:
+    name: zabbix-agent
+    state: present

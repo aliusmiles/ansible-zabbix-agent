@@ -1,0 +1,6 @@
+---
+# Ubuntu tasks file for ansible-zabbix-agent
+- name: Install zabbix-agent
+  apt:
+    name: zabbix-agent
+    state: present

@@ -1,0 +1,12 @@
+---
+# defaults file for ansible-zabbix-agent
+zabbix_version: 3.0
+
+zabbix_log_size: 0
+zabbix_servers:
+  - 127.0.0.1
+zabbix_agent_hostname: "{{ inventory_hostname }}"
+zabbix_enable_active: false
+
+zabbix_enable_remote: false
+zabbix_enable_root: false

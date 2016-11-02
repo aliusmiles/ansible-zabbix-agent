@@ -1,0 +1,15 @@
+PidFile=/var/run/zabbix/zabbix_agentd.pid
+LogFile=/var/log/zabbix/zabbix_agentd.log
+LogFileSize={{ zabbix_log_size }}
+{% if zabbix_enable_remote %}
+EnableRemoteCommands=1
+{% endif %}
+{% if zabbix_enable_root %}
+AllowRoot=1
+{% endif %}
+Server={{ zabbix_servers | join(',') }}
+{% if zabbix_enable_active %}
+ServerActive={{ zabbix_servers | join(',') }}
+{% endif %}
+Hostname={{ zabbix_agent_hostname }}
+Include=/etc/zabbix/zabbix_agentd.d/

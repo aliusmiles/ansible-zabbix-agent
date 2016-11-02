@@ -1,0 +1,24 @@
+---
+# tasks file for ansible-zabbix-agent
+- name: Include OS-specific install tasks
+  include: "install-{{ ansible_distribution }}.yml"
+  tags: zabbix-install
+
+- name: Set zabbix-agent configuration file
+  template:
+    src: agent-config.j2
+    dest: /etc/zabbix/zabbix_agentd.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: Restart zabbix agent
+  tags: zabbix-config
+
+- meta: flush_handlers
+
+- name: Ensure zabbix-agent service is enabled and running
+  service:
+    name: zabbix-agent
+    state: started
+    enabled: yes
+  tags: zabbix-install
