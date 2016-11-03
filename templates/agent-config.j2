@@ -12,4 +12,8 @@ Server={{ zabbix_servers | join(',') }}
 ServerActive={{ zabbix_servers | join(',') }}
 {% endif %}
 Hostname={{ zabbix_agent_hostname }}
+{% if ansible_distribution == 'CentOS' %}
 Include=/etc/zabbix/zabbix_agentd.d/
+{% elif ansible_distribution == 'Ubuntu' %}
+Include=/etc/zabbix/zabbix_agentd.conf.d/
+{% endif %}

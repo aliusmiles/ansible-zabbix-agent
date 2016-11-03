@@ -4,14 +4,6 @@
   include: "install-{{ ansible_distribution }}.yml"
   tags: zabbix-install
 
-- name: Ensure include dir is present
-  file:
-    path: /etc/zabbix/zabbix_agentd.d
-    state: directory
-    owner: root
-    group: root
-    mode: 0655
-
 - name: Set zabbix-agent configuration file
   template:
     src: agent-config.j2
