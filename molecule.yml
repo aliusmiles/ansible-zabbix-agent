@@ -12,6 +12,10 @@ docker:
     - name: ansible-zabbix-agent-ubuntu-xenial
       image: ubuntu
       image_version: xenial
+      cap_add:
+        - SYS_ADMIN
+      volume_mounts:
+        - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
 
     - name: ansible-zabbix-agent-centos-6
       image: centos
