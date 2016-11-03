@@ -14,11 +14,11 @@
   notify: Restart zabbix agent
   tags: zabbix-config
 
-- meta: flush_handlers
-
 - name: Ensure zabbix-agent service is enabled and running
   service:
     name: zabbix-agent
     state: started
     enabled: yes
   tags: zabbix-install
+
+- meta: flush_handlers
