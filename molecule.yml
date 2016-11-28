@@ -29,3 +29,7 @@ docker:
         - SYS_ADMIN
       volume_mounts:
         - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
+
+dependency:
+  name: galaxy
+  requirements_file: requirements.yml
